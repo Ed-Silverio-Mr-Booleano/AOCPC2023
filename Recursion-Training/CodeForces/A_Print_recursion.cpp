@@ -3,14 +3,19 @@
 
 using namespace std;
 
-string iLoveRecursion(int n){
+void iLoveRecursion(int n){
     
-    if(n < 0) return "I Love Recursion";
-    else return iLoveRecursion(n-1);
+    if(n > 0){
+        cout << "I love Recursion"<<endl;
+        iLoveRecursion(n-1);
+    }
+    else return;
 }
 
 int main(){
-    int n = 3;
-    cout << iLoveRecursion(n) <<endl;
+    fast;
+    int n;
+    cin >> n;
+    iLoveRecursion(n);
     return 0;
 }
