@@ -1,36 +1,37 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
+#include <bits/stdc++.h>
+#define fast ios_base::sync_with_stdio(false), cin.tie(nullptr)
 
+
+using namespace std;
 int N, M;
-std::vector<std::vector<int>> A;
+vector<std::vector<int>> A;
 
 int maxSum(int i, int j) {
-    // Verifica se chegou à célula AN,M
+
     if (i == N - 1 && j == M - 1) {
         return A[i][j];
     }
 
-    // Calcula a soma máxima das duas opções
-    int rightSum = (j + 1 < M) ? maxSum(i, j + 1) : 0;
-    int downSum = (i + 1 < N) ? maxSum(i + 1, j) : 0;
+    int r = (j + 1 < M) ? maxSum(i, j + 1) : 0;
+    int d = (i + 1 < N) ? maxSum(i + 1, j) : 0;
 
-    return A[i][j] + std::max(rightSum, downSum);
+    return A[i][j] + max(r, d);
 }
 
 int main() {
-    freopen("X.in", "r", stdin);
-    std::cin >> N >> M;
-    A.resize(N, std::vector<int>(M));
+    fast;
+    //freopen("X.in", "r", stdin);
+    cin >> N >> M;
+    A.resize(N, vector<int>(M));
 
     for (int i = 0; i < N; ++i) {
         for (int j = 0; j < M; ++j) {
-            std::cin >> A[i][j];
+            cin >> A[i][j];
         }
     }
 
     int maxum = maxSum(0, 0);
-    std::cout << maxum << std::endl;
+    cout << maxum <<endl;
 
     return 0;
 }
