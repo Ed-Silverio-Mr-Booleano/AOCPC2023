@@ -4,7 +4,7 @@
 
 using namespace std;
 int N, M;
-vector<std::vector<int>> A;
+vector<vector<int>> A;
 
 int maxSum(int i, int j) {
 
@@ -12,8 +12,8 @@ int maxSum(int i, int j) {
         return A[i][j];
     }
 
-    int r = (j + 1 < M) ? maxSum(i, j + 1) : 0;
-    int d = (i + 1 < N) ? maxSum(i + 1, j) : 0;
+    int r = (j + 1 < M) ? maxSum(i, j + 1) : INT_MIN;
+    int d = (i + 1 < N) ? maxSum(i + 1, j) : INT_MIN;
 
     return A[i][j] + max(r, d);
 }
