@@ -14,7 +14,7 @@ bool isPrime(int n){
 
 int main(){
     fast;
-    //freopen("P.in", "r", stdin);
+    freopen("P.in", "r", stdin);
 
     int n, count = 0, alp = 0;
 
