@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #include <iostream>
 #include <unordered_map>
 #include <vector>
@@ -33,3 +34,43 @@ int main() {
 
     return 0;
 }
+=======
+#include <bits/stdc++.h>
+#define vii vector<pair<int, int>> 
+#define fast ios_base::sync_with_stdio(false), cin.tie(nullptr)
+#define all(c) (c).begin(), (c).end()
+
+
+using namespace std;
+
+int n, x;
+vii a;
+bool flag = false;
+
+
+int main(){
+    cin>>n>>x;
+
+    for(int i = 0; i < n; ++i){
+        int aux;
+        cin >> aux;
+        a.push_back({aux, i+1});
+    }
+
+    sort(all(a));
+    int l= 0, r = n-1;
+    //for(auto i : a) cout << i.first << " ";
+
+    while(l < r){
+        if(a[r].first + a[l].first == x){ 
+            cout << a[r].second<< " " << a[l].second <<endl;
+            flag = true;
+            break;
+        }
+        else if(a[r].first + a[l].first > x) r--;
+        else l++;
+    }
+    if(!flag) cout <<"IMPOSSIBLE"<<endl;
+    return 0;
+}
+>>>>>>> 0c34527 (feat: add new problems)
